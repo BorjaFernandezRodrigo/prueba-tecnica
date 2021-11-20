@@ -1,0 +1,48 @@
+<div class="search">
+  <mat-form-field
+    class="search-input"
+    [appearance]="options && options.appearance ? options.appearance : 'outline'"
+    floatLabel="auto"
+  >
+    <mat-label>Buscar {{ titulo }}...</mat-label>
+    <mat-chip-list #chipList aria-label="Key selection" [selectable]="true">
+      <mat-chip
+        *ngFor="let paramSerach of paramsSerach"
+        [selectable]="true"
+        [removable]="true"
+        (removed)="removeChip(paramSerach)"
+        (click)="selectChip(paramSerach)"
+      >
+        {{ paramSerach }}
+        <mat-icon matChipRemove>cancel</mat-icon>
+      </mat-chip>
+      <input
+        matInput
+        #keyInput
+        type="text"
+        [formControl]="form"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        [matChipInputFor]="chipList"
+        [matChipInputAddOnBlur]="true"
+        (matChipInputTokenEnd)="addChip($event)"
+      />
+    </mat-chip-list>
+    <button matSuffix type="button" mat-icon-button (click)="onClearall()">
+      <mat-icon matTooltip="Borrar Busqueda">close</mat-icon>
+    </button>
+    <mat-autocomplete
+      autoActiveFirstOption
+      #auto="matAutocomplete"
+      (optionSelected)="selectedKey($event)"
+    >
+      <div *ngIf="keysSearch && keysSearch.length > 1" fxLayout="column">
+        <mat-option
+          *ngFor="let keySearch of disableAutoComplete ? undefined : (filteredkeys | async)"
+          [value]="keySearch"
+        >
+          {{ keySearch.name || keySearch.prop }}
+        </mat-option>
+      </div>
+    </mat-autocomplete>
+  </mat-form-field>
+</div>

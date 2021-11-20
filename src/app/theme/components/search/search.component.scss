@@ -1,0 +1,17 @@
+.search {
+  .search-input {
+    width: 100%;
+    overflow: hidden;
+    transition: 0.3s;
+    .mat-form-field {
+      width: 100% !important;
+    }
+    .mat-form-field-infix {
+      padding: 5px;
+    }
+    &.show {
+      width: 100%;
+      overflow: visible;
+    }
+  }
+}

@@ -1,0 +1,69 @@
+@import 'variables';
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-size: $font-size;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+// Utils
+.h-100 {
+  height: 100% !important;
+}
+.w-100 {
+  width: 100% !important;
+}
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// App Styles
+.app {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+// ------ scrollbar ------
+::-webkit-scrollbar {
+  width: 10px !important;
+  height: 8px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #aaa;
+  border: 0px none #ffffff;
+  border-radius: 5px 5px 5px 5px !important;
+  &:hover {
+    background: #999;
+  }
+  &:active {
+    background: #999;
+  }
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+// ------ END scrollbar ------

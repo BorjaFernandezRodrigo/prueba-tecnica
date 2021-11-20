@@ -1,0 +1,33 @@
+import { ModuleWithProviders } from '@angular/core';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { ErrorComponent } from './pages/error/error.component';
+import { MaintenanceComponent } from './pages/maintenance/maintenance.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { PagesComponent } from './pages/pages.component';
+
+export const routes: Routes = [
+  {
+    path: '',
+    component: PagesComponent,
+    children: [
+      {
+        path: '',
+        component: DashboardComponent,
+        data: { breadcrumb: 'Home' },
+      },
+      {
+        path: 'mantenimiento',
+        component: MaintenanceComponent,
+        data: { breadcrumb: 'Mantenimiento' },
+      },
+      { path: '**', component: NotFoundComponent, data: { breadcrumb: 'No encontradoi' } },
+      { path: 'error', component: ErrorComponent, data: { breadcrumb: 'Error' } },
+    ],
+  },
+];
+
+export const routing: ModuleWithProviders<RouterModule> = RouterModule.forRoot(routes, {
+  enableTracing: false, // <- si se pone a true se puede ver la traza de las rutas en la consola
+  preloadingStrategy: PreloadAllModules, // <- comment this line for activate lazy load
+});

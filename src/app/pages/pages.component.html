@@ -1,0 +1,15 @@
+<mat-sidenav-container class="pages-container">
+  <mat-sidenav #sidenav [mode]="'side'" [(opened)]="sidenavOpen">
+    <mat-toolbar color="primary">
+      <p>Progarma X</p>
+    </mat-toolbar>
+    menu
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button mat-button (click)="openSidenav()"><mat-icon>menu</mat-icon></button>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
