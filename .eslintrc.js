@@ -16,6 +16,18 @@ module.exports = {
         '@typescript-eslint/unbound-method': [
           'error',
           {
+            printWidth: 120,
+            singleQuote: true,
+            useTabs: false,
+            tabWidth: 2,
+            semi: true,
+            bracketSpacing: true,
+            parser: 'flow',
+          },
+        ],
+        'prettier/prettier': [
+          'error',
+          {
             ignoreStatic: true,
           },
         ],
@@ -25,7 +37,6 @@ module.exports = {
         // AirBnB Styleguide rules
         'airbnb-typescript/base',
         // Settings for Prettier
-        'prettier',
         'plugin:prettier/recommended',
       ],
     },

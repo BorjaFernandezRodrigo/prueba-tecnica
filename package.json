@@ -15,7 +15,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "lint": "npx eslint -c .eslintrc.js",
+    "lint": "npx eslint -c .eslintrc.js --fix",
     "e2e": "ng e2e",
     "docker:build": "docker build -t prueba-tecnica-front:latest  .",
     "docker:run": "docker run -d -p 4200:80 prueba-tecnica-front:latest",
