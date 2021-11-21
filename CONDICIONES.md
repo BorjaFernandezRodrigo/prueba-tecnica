@@ -25,7 +25,7 @@ debe poder mostrar los siguientes elementos.
   - https://jsonplaceholder.typicode.com/posts
   - Permitir filtrar por usuario
 
-  - Formatoaelegirporeldesarrollador
+  - Formato a elegir por el desarrollador
 
 - Una página para crear un Post
 
@@ -40,7 +40,7 @@ que se poseen.
 - Test unitario de cobertura que cubran al menos el 60% del
   código enviado.
 
-- Integrar otras APIsrelacionadas:
+- Integrar otras APIs relacionadas:
 
   - Una página de detalle del Post
 
