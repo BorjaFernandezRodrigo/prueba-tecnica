@@ -1,0 +1,16 @@
+.container-dashboard {
+  .container-serach {
+  }
+  .container-posts {
+    padding: 10px;
+    .mat-card-header .mat-card-title {
+      margin-bottom: 12px;
+      min-height: 45px;
+    }
+    .post {
+      .body-post {
+        max-height: 20px;
+      }
+    }
+  }
+}

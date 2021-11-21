@@ -12,7 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
+import { MatCardModule } from '@angular/material/card';
 @NgModule({
   declarations: [],
   imports: [CommonModule],
@@ -28,6 +28,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatButtonModule,
     MatSidenavModule,
     MatToolbarModule,
+    MatCardModule,
     FlexLayoutModule,
   ],
 })

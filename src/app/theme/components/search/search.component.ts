@@ -10,15 +10,15 @@ import {
   OnChanges,
   SimpleChanges,
 } from '@angular/core';
-import { MatAutocomplete, MatAutocompleteTrigger } from '@angular/material/autocomplete';
+import {
+  MatAutocomplete,
+  MatAutocompleteTrigger,
+} from '@angular/material/autocomplete';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { map, startWith } from 'rxjs/operators';
-
-interface Options {
-  appearance?: 'legacy' | 'standard' | 'fill' | 'outline';
-}
+import { Options } from './types/search.type';
 
 @Component({
   selector: 'app-search',
@@ -28,15 +28,17 @@ interface Options {
 export class SearchComponent implements OnInit, OnChanges {
   @Output() valuesOutput: EventEmitter<Array<any>> = new EventEmitter();
 
-  @Input() valuesInput: Array<any>;
+  @Input() valuesInput: any[];
   @Input() titulo: string;
   @Input() options: Options;
 
   @Input() keysSearch: { name?: string; prop: string }[];
 
-  @ViewChild('keyInput', { static: false }) fieldInput: ElementRef<HTMLInputElement>;
+  @ViewChild('keyInput', { static: false })
+  fieldInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto', { static: false }) matAutocomplete: MatAutocomplete;
-  @ViewChild(MatAutocompleteTrigger, { static: false }) autocomplete: MatAutocompleteTrigger;
+  @ViewChild(MatAutocompleteTrigger, { static: false })
+  autocomplete: MatAutocompleteTrigger;
 
   separatorKeysCodes: number[] = [ENTER, SEMICOLON];
 
@@ -53,7 +55,7 @@ export class SearchComponent implements OnInit, OnChanges {
       startWith(null),
       map((names: { name?: string; prop: string }) => {
         return names ? this._filter(names) : this.keysSearch;
-      }),
+      })
     );
   }
 
@@ -64,6 +66,10 @@ export class SearchComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
+    console.log(this.titulo);
+    console.log(this.valuesInput);
+    console.log(this.options);
+    console.log(this.keysSearch);
     this.initParam();
   }
 
@@ -121,7 +127,8 @@ export class SearchComponent implements OnInit, OnChanges {
       this.paramsSerach.splice(index, 1);
       if (this.paramsSerach.length !== 0) {
         this.onClearall();
-        this.disableAutoComplete = this.fieldInput.nativeElement.value.length > 0;
+        this.disableAutoComplete =
+          this.fieldInput.nativeElement.value.length > 0;
       } else {
         const ParamsSearch = this.formatParamsSearch(paramSerach);
         const valueSearch = this.searchValues({
@@ -140,7 +147,9 @@ export class SearchComponent implements OnInit, OnChanges {
     if (
       (!this.matAutocomplete || !this.matAutocomplete.isOpen) &&
       !this.selectOption &&
-      event.value.substring(event.value.indexOf(':') + 1, event.value.length).trim()
+      event.value
+        .substring(event.value.indexOf(':') + 1, event.value.length)
+        .trim()
     ) {
       const input = event.input;
       const value = event.value;
@@ -156,7 +165,7 @@ export class SearchComponent implements OnInit, OnChanges {
   }
 
   private _filter(
-    value: string | { name?: string; prop: string },
+    value: string | { name?: string; prop: string }
   ): { name?: string; prop: string }[] {
     this.disableAutoComplete = false;
     if (typeof value === 'object') {
@@ -168,15 +177,21 @@ export class SearchComponent implements OnInit, OnChanges {
               .toLowerCase()
               .indexOf((value['prop'] || '').toLowerCase()) === 0) ||
           (keySearch.name &&
-            keySearch.name.toLowerCase().indexOf(value['name'].toLowerCase()) === 0)
+            keySearch.name
+              .toLowerCase()
+              .indexOf(value['name'].toLowerCase()) === 0)
         );
       });
     } else if (typeof value === 'string') {
       return this.keysSearch.filter(
         (keySearch) =>
           (keySearch.prop &&
-            keySearch.prop.toString().toLowerCase().indexOf(value.toLowerCase()) === 0) ||
-          (keySearch.name && keySearch.name.toLowerCase().indexOf(value.toLowerCase()) === 0),
+            keySearch.prop
+              .toString()
+              .toLowerCase()
+              .indexOf(value.toLowerCase()) === 0) ||
+          (keySearch.name &&
+            keySearch.name.toLowerCase().indexOf(value.toLowerCase()) === 0)
       );
     }
     return [];
@@ -184,7 +199,10 @@ export class SearchComponent implements OnInit, OnChanges {
 
   newParamSerach(paramSerach: string) {
     const paramsSearch = this.formatParamsSearch(paramSerach);
-    const valueSearch = this.searchValues({ name: paramsSearch.name, value: paramsSearch.value });
+    const valueSearch = this.searchValues({
+      name: paramsSearch.name,
+      value: paramsSearch.value,
+    });
     if (valueSearch.length > 0) {
       this.valuesSearch = this.valuesSearch.concat(valueSearch);
       this.valuesSearch = this.valuesSearch.filter((item, index) => {
@@ -202,7 +220,7 @@ export class SearchComponent implements OnInit, OnChanges {
         name = this.keysSearch.find(
           (find) =>
             find.prop === paramSerach.substr(0, paramSerach.indexOf(':')) ||
-            find.name === paramSerach.substr(0, paramSerach.indexOf(':')),
+            find.name === paramSerach.substr(0, paramSerach.indexOf(':'))
         ).prop;
         value = paramSerach.substr(paramSerach.indexOf(':') + 1);
       } else {
@@ -219,10 +237,14 @@ export class SearchComponent implements OnInit, OnChanges {
   searchValues(paramSearch: { name: string; value: string }) {
     let aux = [];
     if (paramSearch.name) {
-      aux = this.valuesInput.filter(this.funcFilter(paramSearch.value, paramSearch.name));
+      aux = this.valuesInput.filter(
+        this.funcFilter(paramSearch.value, paramSearch.name)
+      );
     } else {
       this.keysSearch.forEach((column) => {
-        const temp = this.valuesInput.filter(this.funcFilter(paramSearch.value, column.prop));
+        const temp = this.valuesInput.filter(
+          this.funcFilter(paramSearch.value, column.prop)
+        );
         if (temp.length === 0) {
           if (aux.length === 0) {
             aux = aux.concat(temp);
@@ -258,14 +280,16 @@ export class SearchComponent implements OnInit, OnChanges {
     } else if (value.indexOf('>') === 0) {
       return (filtro) => {
         return (
-          filtro[prop] !== null && Number(filtro[prop]) > Number(value.trim().substr(1).trim())
+          filtro[prop] !== null &&
+          Number(filtro[prop]) > Number(value.trim().substr(1).trim())
         );
       };
     } else if (value.indexOf('!=') === 0) {
       return (filtro) => {
         return (
           filtro[prop] !== null &&
-          filtro[prop].toString().trim().toLowerCase() !== value.substr(2).trim().toLowerCase()
+          filtro[prop].toString().trim().toLowerCase() !==
+            value.substr(2).trim().toLowerCase()
         );
       };
     } else if (value.replace(/[^*]/g, '').length > 0) {
@@ -292,7 +316,9 @@ export class SearchComponent implements OnInit, OnChanges {
       return (filtro) => {
         return filtro[prop]
           ? new RegExp(regexp, 'gi').test(
-              filtro[prop].toLocaleString('es-ES', { minimumFractionDigits: 2 }).trim(),
+              filtro[prop]
+                .toLocaleString('es-ES', { minimumFractionDigits: 2 })
+                .trim()
             )
           : null;
       };
