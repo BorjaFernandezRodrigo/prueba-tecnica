@@ -24,23 +24,24 @@
     <div class="body" fxLayout="column" fxLayoutAlign="center center">
       {{ post.body }}
     </div>
-    <mat-accordion class="comments">
-      <mat-expansion-panel hideToggle>
-        <mat-expansion-panel-header>
-          <mat-panel-title> Comentarios </mat-panel-title>
-        </mat-expansion-panel-header>
-
-        <div class="comment" *ngFor="let comment of post.comment">
-          <mat-card fxLayout="row">
-            <div>
-              <mat-card-subtitle
-                >Id: {{ comment.email }} - Usuario: {{ comment.name }}</mat-card-subtitle
-              >
-              <mat-card-content>{{ comment.body }}</mat-card-content>
-            </div>
-          </mat-card>
-        </div>
-      </mat-expansion-panel>
-    </mat-accordion>
+    <div class="comments">
+      <mat-accordion>
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title> Comentarios </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="comment" *ngFor="let comment of post.comment">
+            <mat-card fxLayout="row">
+              <div>
+                <mat-card-subtitle
+                  >Id: {{ comment.email }} - Usuario: {{ comment.name }}</mat-card-subtitle
+                >
+                <mat-card-content>{{ comment.body }}</mat-card-content>
+              </div>
+            </mat-card>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
   </div>
 </div>
