@@ -1,0 +1,16 @@
+<div fxLayout="row wrap">
+  <div fxFlex="100" class="flex-p">
+    <div class="breadcrumb-item" fxLayout="row" fxLayoutAlign="start center">
+      <div
+        *ngFor="let breadcrumb of breadcrumbs; let indexBread = index"
+        class="breadcrumb-item"
+        fxLayout="row"
+        fxLayoutAlign="start center"
+      >
+        <span [hidden]="indexBread != breadcrumbs.length - 1" class="breadcrumb-title active">{{
+          breadcrumb.name
+        }}</span>
+      </div>
+    </div>
+  </div>
+</div>

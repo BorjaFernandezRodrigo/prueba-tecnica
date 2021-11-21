@@ -1,14 +1,20 @@
 <mat-sidenav-container class="pages-container">
   <mat-sidenav #sidenav [mode]="'side'" [(opened)]="sidenavOpen">
     <mat-toolbar color="primary">
-      <p>Progarma X</p>
+      <p>Prueba Tecnica</p>
     </mat-toolbar>
-    menu
+    <div fxLayout="column" fxLayoutAlign="start center">
+      <button mat-button [routerLink]="['/']"><mat-icon>dashboard</mat-icon> Publicaciones</button>
+      <button mat-button [routerLink]="['/mantenimiento']">
+        <mat-icon>settings</mat-icon> Mantenimiento
+      </button>
+    </div>
   </mat-sidenav>
 
-  <mat-sidenav-content>
+  <mat-sidenav-content class="sidenav-content">
     <mat-toolbar color="primary">
       <button mat-button (click)="openSidenav()"><mat-icon>menu</mat-icon></button>
+      <app-breadcrumb></app-breadcrumb>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>

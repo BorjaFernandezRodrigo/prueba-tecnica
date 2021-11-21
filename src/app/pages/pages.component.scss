@@ -4,53 +4,7 @@
   display: flex;
   height: 100%;
   overflow: hidden !important;
-  .vertical-toolbar-button-sidenav {
-    z-index: 2;
-    position: absolute;
-    margin-left: calc(#{$vertical-tool-bar-width} - 15px);
-    top: $button-open-sidenav-top;
-    .button {
-      width: 32px;
-      height: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.5s;
-    }
-    .button-closed {
-      transform: scaleX(-1);
-      transition: all 0.5s;
-    }
-  }
-  .vertical-toolbar {
-    overflow: hidden;
-    height: 100vh !important;
-    width: $vertical-tool-bar-width;
-  }
-  .drawer-content {
-    overflow: hidden !important;
-    .horizontal-toolbar-button-sidenav {
-      position: fixed !important;
-    }
-    .horizontal-toolbar {
-      overflow: hidden;
-      width: 100%;
-      height: $horizontal-tool-bar-height !important;
-      border-radius: 10px;
-    }
-    .vertical-menu-bar {
-      display: flex;
-      width: $vertical-menu-width;
-    }
-  }
-  .pages {
-    overflow: auto;
-  }
-  .page-vetical-toolbar {
-    height: 100vh;
-  }
-  .page-horizontal-toolbar {
-    height: calc(100vh - #{$horizontal-tool-bar-height} - 10px);
-    padding: 10px 0px 0px 35px;
+  .sidenav-content {
+    width: 100%;
   }
 }
