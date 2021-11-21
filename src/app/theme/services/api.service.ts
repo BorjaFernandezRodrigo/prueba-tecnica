@@ -11,16 +11,13 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
-  public get(url: string, resources?: string | number): Observable<any> {
-    const urlfinal = this.buildUrl(url, resources);
+  public get(url: string): Observable<any> {
+    const urlfinal = this.buildUrl(url);
     return this.http.get(urlfinal);
   }
 
-  private buildUrl(url: string, resources?: string | number) {
+  private buildUrl(url: string) {
     let urlFinal = `${this.urlBase}/${url}`;
-    if (resources) {
-      urlFinal += `/${resources}`;
-    }
     return urlFinal;
   }
 }

@@ -1,0 +1,28 @@
+<div class="container-post w-100">
+  <div class="h-100" *ngIf="loadSpinner" fxLayout="column" fxLayoutAlign="center center">
+    <mat-spinner></mat-spinner>
+    <span>Cargando...</span>
+  </div>
+  <div class="post" *ngIf="!loadSpinner">
+    <div class="title" fxLayout="column" fxLayoutAlign="center center">
+      <h1>{{ post.title }}</h1>
+      <div class="data-user" fxLayout="row" fxLayoutAlign="space-around center">
+        <div fxLayoutAlign="center center">
+          <mat-icon>perm_identity</mat-icon>
+          <a> {{ post.user.name }}</a>
+        </div>
+        <div fxLayoutAlign="center center">
+          <mat-icon>alternate_email</mat-icon>
+          <a> {{ post.user.email }}</a>
+        </div>
+        <div fxLayoutAlign="center center">
+          <mat-icon>web</mat-icon>
+          <a> {{ post.user.website }}</a>
+        </div>
+      </div>
+    </div>
+    <div class="body" fxLayout="column" fxLayoutAlign="center center">
+      {{ post.body }}
+    </div>
+  </div>
+</div>

@@ -13,6 +13,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 @NgModule({
   declarations: [],
   imports: [CommonModule],
@@ -30,6 +31,7 @@ import { MatCardModule } from '@angular/material/card';
     MatToolbarModule,
     MatCardModule,
     FlexLayoutModule,
+    MatProgressSpinnerModule,
   ],
 })
 export class MaterialsModule {}

@@ -1,0 +1,18 @@
+@import '../../theme/styles/variables';
+
+.container-post {
+  height: calc(100% - $tool-bar-height);
+  .post {
+    padding: 20px;
+    .title {
+      .data-user {
+        width: 75%;
+      }
+    }
+    .body {
+      margin-top: 20px;
+    }
+    .commets {
+    }
+  }
+}

@@ -29,7 +29,7 @@ export interface ApiUser {
   };
 }
 
-export interface ApiComent {
+export interface ApiComment {
   postId: number;
   id: number;
   name: string;

@@ -6,6 +6,7 @@ import { ErrorComponent } from './pages/error/error.component';
 import { MaintenanceComponent } from './pages/maintenance/maintenance.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { PagesComponent } from './pages/pages.component';
+import { PostComponent } from './pages/post/post.component';
 
 export const routes: Routes = [
   {
@@ -21,6 +22,11 @@ export const routes: Routes = [
         path: 'mantenimiento',
         component: MaintenanceComponent,
         data: { breadcrumb: 'Mantenimiento' },
+      },
+      {
+        path: 'post',
+        component: PostComponent,
+        data: { breadcrumb: 'Post' },
       },
       { path: '**', component: NotFoundComponent, data: { breadcrumb: 'No encontradoi' } },
       { path: 'error', component: ErrorComponent, data: { breadcrumb: 'Error' } },

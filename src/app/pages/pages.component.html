@@ -12,10 +12,14 @@
   </mat-sidenav>
 
   <mat-sidenav-content class="sidenav-content">
-    <mat-toolbar color="primary">
-      <button mat-button (click)="openSidenav()"><mat-icon>menu</mat-icon></button>
-      <app-breadcrumb></app-breadcrumb>
+    <mat-toolbar color="primary" fxLayout="row">
+      <button class="menu-button" mat-button (click)="openSidenav()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <app-breadcrumb class="breadcrumb" fxLayoutAlign="center center"></app-breadcrumb>
     </mat-toolbar>
-    <router-outlet></router-outlet>
+    <div class="page">
+      <router-outlet></router-outlet>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
