@@ -2,13 +2,10 @@ module.exports = {
   root: true,
   overrides: [
     {
-      files: ["*.ts"],
+      files: ['*.ts'],
       parserOptions: {
-        project: [
-          "tsconfig.*?.json",
-          "e2e/tsconfig.json"
-        ],
-        createDefaultProgram: true
+        project: ['tsconfig.*?.json', 'e2e/tsconfig.json'],
+        createDefaultProgram: true,
       },
       rules: {
         // Custom rules
@@ -20,43 +17,43 @@ module.exports = {
           'error',
           {
             ignoreStatic: true,
-          }
-        ]
+          },
+        ],
       },
       extends: [
-            "plugin:@angular-eslint/recommended",
-            // AirBnB Styleguide rules
-            'airbnb-typescript/base',
-            // Settings for Prettier
-            'prettier/@typescript-eslint',
-            'plugin:prettier/recommended'
-        ],
+        'plugin:@angular-eslint/recommended',
+        // AirBnB Styleguide rules
+        'airbnb-typescript/base',
+        // Settings for Prettier
+        'prettier',
+        'plugin:prettier/recommended',
+      ],
     },
     {
-      files: ["*.component.html"],
-      extends: ["plugin:@angular-eslint/template/recommended"],
+      files: ['*.component.html'],
+      extends: ['plugin:@angular-eslint/template/recommended'],
       rules: {
-        "max-len": ["error", { "code": 140 }]
-      }
+        'max-len': ['error', { code: 140 }],
+      },
     },
     {
-      files: ["*.component.ts"],
-      extends: ["plugin:@angular-eslint/template/process-inline-templates"]
+      files: ['*.component.ts'],
+      extends: ['plugin:@angular-eslint/template/process-inline-templates'],
     },
     {
-        files: ['src/**/*.spec.ts', 'src/**/*.d.ts'],
-        parserOptions: {
+      files: ['src/**/*.spec.ts', 'src/**/*.d.ts'],
+      parserOptions: {
         project: './src/tsconfig.spec.json',
-        },
-        // Jasmine rules
-        extends: ['plugin:jasmine/recommended'],
-        // Plugin to run Jasmine rules
-        plugins: ['jasmine'],
-        env: { jasmine: true },
-        // Turn off 'no-unused-vars' rule
-        rules: {
-        '@typescript-eslint/no-unused-vars': 'off'
-        }
-    }
-  ]
-}
+      },
+      // Jasmine rules
+      extends: ['plugin:jasmine/recommended'],
+      // Plugin to run Jasmine rules
+      plugins: ['jasmine'],
+      env: { jasmine: true },
+      // Turn off 'no-unused-vars' rule
+      rules: {
+        '@typescript-eslint/no-unused-vars': 'off',
+      },
+    },
+  ],
+};
