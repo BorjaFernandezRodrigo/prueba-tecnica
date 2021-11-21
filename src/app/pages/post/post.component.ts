@@ -21,7 +21,6 @@ export class PostComponent implements OnInit {
     this.route.queryParams.subscribe((params: { postId: number; userId: number }) => {
       this.postService.loadData(params.postId, params.userId).subscribe((res) => {
         this.post = res;
-        console.log(this.post);
         this.loadSpinner = false;
       });
     });

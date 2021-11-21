@@ -173,9 +173,9 @@ export class SearchComponent implements OnInit, OnChanges {
         return (
           (keySearch.prop &&
             keySearch.prop
-              .toString()
-              .toLowerCase()
-              .indexOf((value.prop || '').toLowerCase()) === 0) ||
+              ?.toString()
+              ?.toLowerCase()
+              ?.indexOf((value.prop || '').toLowerCase()) === 0) ||
           (keySearch.name && keySearch.name.toLowerCase().indexOf(value.name.toLowerCase()) === 0)
         );
       });
@@ -183,7 +183,7 @@ export class SearchComponent implements OnInit, OnChanges {
       return this.keysSearch.filter(
         (keySearch) =>
           (keySearch.prop &&
-            keySearch.prop.toString().toLowerCase().indexOf(value.toLowerCase()) === 0) ||
+            keySearch.prop?.toString().toLowerCase().indexOf(value.toLowerCase()) === 0) ||
           (keySearch.name && keySearch.name.toLowerCase().indexOf(value.toLowerCase()) === 0),
       );
     }
@@ -276,7 +276,7 @@ export class SearchComponent implements OnInit, OnChanges {
       return (filtro) => {
         return (
           filtro[prop] !== null &&
-          filtro[prop].toString().trim().toLowerCase() !== value.substr(2).trim().toLowerCase()
+          filtro[prop]?.toString().trim().toLowerCase() !== value.substr(2).trim().toLowerCase()
         );
       };
     } else if (value.replace(/[^*]/g, '').length > 0) {
@@ -300,7 +300,7 @@ export class SearchComponent implements OnInit, OnChanges {
       };
     } else {
       return (filtro) => {
-        return filtro[prop].toString().trim() === value.toString().trim();
+        return filtro[prop]?.toString().trim() === value?.toString().trim();
       };
     }
   }

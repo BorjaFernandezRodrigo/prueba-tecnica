@@ -14,6 +14,7 @@
     }
     .page {
       padding: 20px;
+      height: calc(100% - $tool-bar-height - 20px * 2);
     }
   }
 }

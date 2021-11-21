@@ -1,1 +1,76 @@
-<p>maintenance works!</p>
+<div class="h-100" *ngIf="loadSpinner" fxLayout="column" fxLayoutAlign="center center">
+  <mat-spinner></mat-spinner>
+  <span>Cargando...</span>
+</div>
+
+<mat-drawer-container class="maintenance-container h-100" *ngIf="!loadSpinner">
+  <mat-drawer mode="side" opened class="sidenav">
+    <mat-toolbar color="primary" fxLayoutAlign="center center">
+      <div>Publicaciones</div>
+    </mat-toolbar>
+    <div fxLayout="column" class="posts" fxLayoutAlign="start center">
+      <div fxLayout="row" class="tools">
+        <app-search
+          class="search"
+          [valuesInput]="maintenanceService.posts"
+          [titulo]="'Post'"
+          [keysSearch]="keySerach"
+          (valuesOutput)="postsSearch = $event"
+        ></app-search>
+        <button class="button-add" mat-button (click)="createPost()">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+      <div class="post" *ngFor="let post of postsSearch">
+        <mat-card fxLayout="row">
+          <div (click)="selectPost(post)" class="data">
+            <mat-card-subtitle>Id: {{ post.id }} - Usuario: {{ post.userId }}</mat-card-subtitle>
+            <mat-card-content>{{ post.title }}</mat-card-content>
+          </div>
+          <button class="button-delete" mat-button (click)="delete(post.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card>
+      </div>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content class="sidenav-content">
+    <mat-toolbar color="primary" fxLayout="row"> </mat-toolbar>
+
+    <form
+      *ngIf="!hideForm"
+      [formGroup]="form"
+      fxLayout="column"
+      class="w-100 container-form"
+      (submit)="save()"
+    >
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label> Titulo </mat-label>
+        <input matInput formControlName="title" />
+      </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label> Texto </mat-label>
+        <textarea
+          matInput
+          formControlName="body"
+          cdkTextareaAutosize
+          cdkAutosizeMinRows="5"
+          cdkAutosizeMaxRows="5"
+          #autosize="cdkTextareaAutosize"
+        ></textarea>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Usuario</mat-label>
+        <mat-select formControlName="userId">
+          <mat-option *ngFor="let user of maintenanceService.users" [value]="user.id">{{
+            user.name
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Guardar</button>
+    </form>
+  </mat-drawer-content>
+</mat-drawer-container>

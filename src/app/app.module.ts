@@ -11,7 +11,6 @@ import { MaterialsModule } from './theme/shared/materials.module';
 import { ComponentsModule } from './theme/components/components.module';
 import { MaintenanceComponent } from './pages/maintenance/maintenance.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { ErrorComponent } from './pages/error/error.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PostComponent } from './pages/post/post.component';
 
@@ -22,7 +21,6 @@ import { PostComponent } from './pages/post/post.component';
     DashboardComponent,
     MaintenanceComponent,
     NotFoundComponent,
-    ErrorComponent,
     PostComponent,
   ],
   imports: [

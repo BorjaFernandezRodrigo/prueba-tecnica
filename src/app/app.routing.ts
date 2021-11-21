@@ -2,7 +2,6 @@
 import { ModuleWithProviders } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { ErrorComponent } from './pages/error/error.component';
 import { MaintenanceComponent } from './pages/maintenance/maintenance.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { PagesComponent } from './pages/pages.component';
@@ -29,7 +28,6 @@ export const routes: Routes = [
         data: { breadcrumb: 'Post' },
       },
       { path: '**', component: NotFoundComponent, data: { breadcrumb: 'No encontradoi' } },
-      { path: 'error', component: ErrorComponent, data: { breadcrumb: 'Error' } },
     ],
   },
 ];

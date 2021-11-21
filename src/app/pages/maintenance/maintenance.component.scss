@@ -1,0 +1,43 @@
+.maintenance-container {
+  display: flex;
+  overflow: hidden !important;
+  .sidenav {
+    width: 340px;
+    .tools {
+      height: 65px;
+      .search {
+        width: 90%;
+      }
+      .button-add {
+        width: 10%;
+      }
+    }
+    .posts {
+      overflow: auto;
+      height: 95%;
+      .post {
+        width: 95%;
+        margin-top: 10px;
+        .data {
+          width: 95%;
+          .title-detail {
+          }
+          .post-detail {
+          }
+        }
+        .button-delete {
+          position: absolute;
+          top: 5px;
+          left: 245px;
+        }
+      }
+    }
+  }
+  .sidenav-content {
+    width: 100%;
+    margin-left: 340px !important;
+    .container-form {
+      padding: 20px;
+    }
+  }
+}
