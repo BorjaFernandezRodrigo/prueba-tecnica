@@ -16,7 +16,11 @@ export class DashboardComponent implements OnInit {
   public keySerach = [
     {
       prop: 'userName',
-      name: 'Usuario',
+      name: 'Nombre Usuario',
+    },
+    {
+      prop: 'userId',
+      name: 'Id Usuario',
     },
     {
       prop: 'title',

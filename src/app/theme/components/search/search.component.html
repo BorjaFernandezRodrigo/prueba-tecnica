@@ -1,9 +1,7 @@
 <div class="search">
   <mat-form-field
     class="search-input"
-    [appearance]="
-      options && options.appearance ? options.appearance : 'outline'
-    "
+    [appearance]="options && options.appearance ? options.appearance : 'outline'"
     floatLabel="auto"
   >
     <mat-label>Buscar {{ titulo }}...</mat-label>
@@ -40,11 +38,7 @@
     >
       <div *ngIf="keysSearch && keysSearch.length > 1" fxLayout="column">
         <mat-option
-          *ngFor="
-            let keySearch of disableAutoComplete
-              ? undefined
-              : (filteredkeys | async)
-          "
+          *ngFor="let keySearch of disableAutoComplete ? undefined : (filteredkeys | async)"
           [value]="keySearch"
         >
           {{ keySearch.name || keySearch.prop }}

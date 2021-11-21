@@ -9,7 +9,8 @@ import { DashboardPost } from './types/dashboard.type';
 })
 export class DashboardService {
   private urlposts = 'posts';
-  private urlusers = 'posts';
+
+  private urlusers = 'users';
 
   constructor(private apiService: ApiService) {}
 
@@ -20,18 +21,17 @@ export class DashboardService {
     }).pipe(
       map((res: { posts: ApiPost[]; users: ApiUser[] }) => {
         return this.buildData(res);
-      })
+      }),
     );
   }
 
   buildData(data: { posts: ApiPost[]; users: ApiUser[] }): DashboardPost[] {
     const dashboardPosts: DashboardPost[] = [];
     data.posts.forEach((post) => {
-      const userPost: ApiUser = data.users.find(
-        (user) => user.id === post.userId
-      );
-      const aux = {
+      const userPost: ApiUser = data.users.find((user) => user.id === post.userId);
+      const aux: DashboardPost = {
         userName: userPost.username,
+        userId: userPost.id,
         id: post.id,
         title: post.title,
         body: post.body,

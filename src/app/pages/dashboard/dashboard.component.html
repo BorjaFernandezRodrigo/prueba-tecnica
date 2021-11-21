@@ -3,20 +3,7 @@
     <app-search
       [valuesInput]="dashboardPosts"
       [titulo]="'Post'"
-      [keysSearch]="[
-        {
-          prop: 'userName',
-          name: 'Usuario'
-        },
-        {
-          prop: 'title',
-          name: 'Titulo'
-        },
-        {
-          prop: 'body',
-          name: 'Contenido'
-        }
-      ]"
+      [keysSearch]="keySerach"
       (valuesOutput)="dashboardPostsSearch = $event"
     ></app-search>
   </div>
@@ -39,7 +26,9 @@
           </p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-button>Leer</button>
+          <button mat-button [routerLink]="['/post']" [queryParams]="{ postId: post.id }">
+            Leer
+          </button>
         </mat-card-actions>
       </mat-card>
     </div>
