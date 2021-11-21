@@ -12,20 +12,11 @@ module.exports = {
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
         'class-methods-use-this': 'off',
+        'import/no-extraneous-dependencies': 'off',
+        'import/extensions': 'off',
         'lines-between-class-members': 'off',
+        'prettier/prettier': 'off',
         '@typescript-eslint/unbound-method': [
-          'error',
-          {
-            printWidth: 120,
-            singleQuote: true,
-            useTabs: false,
-            tabWidth: 2,
-            semi: true,
-            bracketSpacing: true,
-            parser: 'flow',
-          },
-        ],
-        'prettier/prettier': [
           'error',
           {
             ignoreStatic: true,
