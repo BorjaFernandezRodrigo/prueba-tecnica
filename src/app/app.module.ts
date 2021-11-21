@@ -8,11 +8,11 @@ import { PagesComponent } from './pages/pages.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { routing } from './app.routing';
 import { MaterialsModule } from './theme/shared/materials.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ComponentsModule } from './theme/components/components.module';
 import { MaintenanceComponent } from './pages/maintenance/maintenance.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ErrorComponent } from './pages/error/error.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,6 +30,7 @@ import { ErrorComponent } from './pages/error/error.component';
     MaterialsModule,
     BrowserAnimationsModule,
     ComponentsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
