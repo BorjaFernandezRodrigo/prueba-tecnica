@@ -22,19 +22,19 @@ export class PostService {
       user: this.apiService.get(`${this.urlusers}/${userId}`),
       comment: this.apiService.get(`${this.urlposts}/${postId}/${this.urlComment}`),
     }).pipe(
-      map((res: { post: ApiPost; user: ApiUser; comment: ApiComment }) => {
+      map((res: { post: ApiPost; user: ApiUser; comment: ApiComment[] }) => {
         return this.buildData(res);
       }),
     );
   }
 
-  buildData(data: { post: ApiPost; user: ApiUser; comment: ApiComment }): Post {
+  buildData(data: { post: ApiPost; user: ApiUser; comment: ApiComment[] }): Post {
     const dashboardPosts: Post = {
       user: data.user,
       id: data.post.id,
       title: data.post.title,
       body: data.post.body,
-      coment: data.comment,
+      comment: data.comment,
     };
     return dashboardPosts;
   }

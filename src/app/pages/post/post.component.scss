@@ -12,7 +12,11 @@
     .body {
       margin-top: 20px;
     }
-    .commets {
+    .comments {
+      margin-top: 10px;
+      .comment {
+        padding: 10px;
+      }
     }
   }
 }

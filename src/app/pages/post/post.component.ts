@@ -11,6 +11,8 @@ import { Post } from './types/post.type';
 export class PostComponent implements OnInit {
   public post: Post;
 
+  public commetOpen: boolean;
+
   public loadSpinner: boolean;
 
   constructor(private route: ActivatedRoute, private postService: PostService) {

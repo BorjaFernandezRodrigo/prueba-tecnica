@@ -15,6 +15,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
+import { MatExpansionModule } from '@angular/material/expansion';
 @NgModule({
   declarations: [],
   imports: [CommonModule],
@@ -35,6 +36,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatProgressSpinnerModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatExpansionModule,
   ],
 })
 export class MaterialsModule {}
